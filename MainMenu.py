@@ -30,6 +30,14 @@ def speechToTextMicrophone():
     print(f"Original text: {text}")
     print(f"Translated: {mainTranslate}")
 
+def translatorEnglishTextFile():
+    mainTraductor = TranslatorManager()
+    mainTranslate = mainTraductor.translatorenglishtextfile()
+
+def translatorPortugueseTextFile():
+    mainTraductor = TranslatorManager()
+    mainTranslate = mainTraductor.translatorportuguesetextfile()
+
 app = Tk()
 app.title("NExT-2023 - M01 Audio To Text")
 app.geometry("500x300")
@@ -47,10 +55,10 @@ menu.add_cascade(label="Speech To Text", menu=menuSpeechToText)
 
 menuTranslator = Menu(menu, tearoff=0)
 menuTranslator.add_command(
-    label="English to portuguese", command=withoutCommand)
+    label="Text file (english to portuguese)", command=translatorEnglishTextFile)
 menuTranslator.add_command(
-    label="Portuguese to English", command=withoutCommand)
-menu.add_cascade(label="Translator", menu=menuTranslator)
+    label="Text file (portuguese to english)", command=translatorPortugueseTextFile)
+menu.add_cascade(label="Translation", menu=menuTranslator)
 
 menuAbout = Menu(menu, tearoff=0)
 menuAbout.add_command(label="Speech to Text/Translator",
