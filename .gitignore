@@ -5,6 +5,8 @@ __pycache__/
 
 text_files(translated)
 
+text_files(translated)
+
 # C extensions
 *.so
 
