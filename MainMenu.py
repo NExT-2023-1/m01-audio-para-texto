@@ -123,6 +123,40 @@ def translatorPortugueseTextFile():
 
         final_print(text, mainTranslate, full_path, None)
 
+def translatorEnglishTextFile():
+        file_path = select_file()
+
+        if file_path:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                text = file.read()
+        
+        mainTraductor = TranslatorManager()
+        mainTranslate = mainTraductor.translate(text, language_destiny='pt')
+               
+        destination_directory = create_destination_directory()
+
+        # Call the function to save the translation in a file and store the full name of the file in a variable.
+        full_path = save_translation_to_file(mainTranslate, file_path, destination_directory)
+
+        final_print(text, mainTranslate, full_path)
+
+def translatorPortugueseTextFile():
+        file_path = select_file()
+
+        if file_path:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                text = file.read()
+        
+        mainTraductor = TranslatorManager()
+        mainTranslate = mainTraductor.translate(text, language_destiny='en')
+               
+        destination_directory = create_destination_directory()
+
+        # Call the function to save the translation in a file and store the full name of the file in a variable.
+        full_path = save_translation_to_file(mainTranslate, file_path, destination_directory)
+
+        final_print(text, mainTranslate, full_path)
+
 app = Tk()
 app.title("Speechy")
 app.geometry("500x300")
