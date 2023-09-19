@@ -33,9 +33,9 @@ def save_translation_to_file(translation, source_file_path, destination_director
 
 def final_print(original_text, translated_text, full_path, processing_time):
     print_window = tk.Toplevel()
-    print_window.title("Printing Information")
+    print_window.title("Original and Translated Text")
 
-    # Cria um frame para conter as duas caixas de texto lado a lado
+    # Create a frame to contain the two text boxes side by side
     frame = Frame(print_window)
     frame.pack()
 
@@ -45,21 +45,11 @@ def final_print(original_text, translated_text, full_path, processing_time):
     original_text_widget.insert(tk.END, f"Original text:\n{original_text}\n")
     original_text_widget.config(state=tk.DISABLED)
 
-    # Caixa de texto para o texto traduzido
+    # Text box for translated text
     translated_text_widget = Text(frame, wrap=WORD, height=20, width=30)
     translated_text_widget.pack(side=LEFT, padx=10, pady=10)
     translated_text_widget.insert(tk.END, f"Translated:\n{translated_text}\n")
     translated_text_widget.config(state=tk.DISABLED)
-
-    # Creates a Text widget to display text on multiple lines
-    #text_widget = Text(print_window, wrap=WORD, height=20, width=60)
-    #text_widget.pack()
-
-    # Adds original and translated text to the Text widget
-    #text_widget.insert(tk.END, f"Original text:\n{original_text}\n\nTranslated:\n{translated_text}\n")
-
-    #info_label = tk.Label(print_window, text=f"Original text: {original_text}\n\nTranslated: {translated_text}\n")
-    #info_label.pack()
 
     if full_path is not None:
         path_label = tk.Label(print_window, text=f"Translation completed and saved in '{full_path}'.")
