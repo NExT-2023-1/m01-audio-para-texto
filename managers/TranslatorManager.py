@@ -1,5 +1,4 @@
 from googletrans import Translator
-import os
 
 class TranslatorManager:
     def __init__(self):
