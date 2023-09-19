@@ -31,10 +31,13 @@ def save_translation_to_file(translation, source_file_path, destination_director
         translated_file.write(translation)
     return full_path
 
-def final_print(original_text, translated_text, full_path):
+def final_print(original_text, translated_text, full_path, processing_time):
     print(f"Original text: {original_text}\n")
     print(f"Translated: {translated_text}\n")
-    print(f"Translation completed and saved in '{full_path}'.\n")
+    if full_path != None:
+        print(f"Translation completed and saved in '{full_path}'.\n")
+    if processing_time != None:
+        print(f"The processing time was {int(processing_time)} seconds")
 
 def speechToTextFile():
     initial_time = time.time()
@@ -46,9 +49,8 @@ def speechToTextFile():
     mainTraductor = TranslatorManager()
     mainTranslate = mainTraductor.translate(text, language_destiny='pt')
     final_time = time.time()
-    print(f"Original text: {text}")
-    print(f"Translated: {mainTranslate}")
-    print(f"The processing time was {int(final_time - initial_time)} seconds")
+    processing_time = int(final_time - initial_time)
+    final_print(text, mainTranslate,None, processing_time)
 
 def speechToTextMicrophone():
     stt = SpeechToTextManager()
@@ -57,8 +59,7 @@ def speechToTextMicrophone():
 
     mainTraductor = TranslatorManager()
     mainTranslate = mainTraductor.translate(text, language_destiny='en')
-    print(f"Original text: {text}")
-    print(f"Translated: {mainTranslate}")
+    final_print(text, mainTranslate,None, None)
 
 def translatorEnglishTextFile():
         file_path = select_file()
@@ -75,7 +76,7 @@ def translatorEnglishTextFile():
         # Call the function to save the translation in a file and store the full name of the file in a variable.
         full_path = save_translation_to_file(mainTranslate, file_path, destination_directory)
 
-        final_print(text, mainTranslate, full_path)
+        final_print(text, mainTranslate, full_path, None)
 
 def translatorPortugueseTextFile():
         file_path = select_file()
@@ -92,7 +93,7 @@ def translatorPortugueseTextFile():
         # Call the function to save the translation in a file and store the full name of the file in a variable.
         full_path = save_translation_to_file(mainTranslate, file_path, destination_directory)
 
-        final_print(text, mainTranslate, full_path)
+        final_print(text, mainTranslate, full_path, None)
 
 app = Tk()
 app.title("NExT-2023 - M01 Audio To Text")
