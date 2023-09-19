@@ -1,6 +1,4 @@
 from googletrans import Translator
-from tkinter import filedialog
-import os
 
 class TranslatorManager:
     def __init__(self):
