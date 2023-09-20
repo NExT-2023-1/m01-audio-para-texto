@@ -39,7 +39,7 @@ def final_print(original_text, translated_text, full_path, processing_time):
     frame = Frame(print_window)
     frame.pack()
 
-    # Caixa de texto para o texto original
+    # Text box for original text
     original_text_widget = Text(frame, wrap=WORD, height=20, width=30)
     original_text_widget.pack(side=LEFT, padx=10, pady=10)
     original_text_widget.insert(tk.END, f"Original text:\n{original_text}\n")
@@ -59,12 +59,13 @@ def final_print(original_text, translated_text, full_path, processing_time):
         time_label = tk.Label(print_window, text=f"The processing time was {int(processing_time)} seconds")
         time_label.pack()
 
-    print(f"Original text: {original_text}\n")
-    print(f"Translated: {translated_text}\n")
-    if full_path != None:
-        print(f"Translation completed and saved in '{full_path}'.\n")
-    if processing_time != None:
-        print(f"The processing time was {int(processing_time)} seconds")
+    #If you want to enable printing in the terminal, just remove the comments.
+    #print(f"Original text: {original_text}\n")
+    #print(f"Translated: {translated_text}\n")
+    #if full_path != None:
+    #    print(f"Translation completed and saved in '{full_path}'.\n")
+    #if processing_time != None:
+    #    print(f"The processing time was {int(processing_time)} seconds")
 
 def speechToTextFile():
     initial_time = time.time()
@@ -123,7 +124,7 @@ def translatorPortugueseTextFile():
         final_print(text, mainTranslate, full_path, None)
 
 app = Tk()
-app.title("NExT-2023 - M01 Audio To Text")
+app.title("Speechy")
 app.geometry("500x300")
 app.configure(background="#dde")
 
