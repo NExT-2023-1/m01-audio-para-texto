@@ -172,7 +172,7 @@ def translatorEnglishTextFile():
         # Call the function to save the translation in a file and store the full name of the file in a variable.
         full_path = save_translation_to_file(mainTranslate, file_path, destination_directory)
 
-        final_print(text, mainTranslate, full_path)
+        final_print(text, mainTranslate, full_path, None)
 
 def translatorPortugueseTextFile():
         file_path = select_file()
@@ -189,7 +189,7 @@ def translatorPortugueseTextFile():
         # Call the function to save the translation in a file and store the full name of the file in a variable.
         full_path = save_translation_to_file(mainTranslate, file_path, destination_directory)
 
-        final_print(text, mainTranslate, full_path)
+        final_print(text, mainTranslate, full_path, None)
 
 app = Tk()
 app.title("Speechy")
